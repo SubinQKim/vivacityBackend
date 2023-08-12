@@ -43,3 +43,13 @@ app.post('/fun/info', async (req: Request, res: Response) => {
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
+
+
+
+// below is the create table query used in PG Admin 4
+// CREATE TABLE fun_info (
+//     id SERIAL PRIMARY KEY,
+//     name VARCHAR(255) NOT NULL,
+//     hobbies TEXT[],
+//     favorite_food VARCHAR(255) NOT NULL
+// );
