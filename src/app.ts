@@ -3,16 +3,18 @@ import { pool, insertFunInfo } from './db';
 import cors from "cors";
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 //enable cors to allow reqs from diff origins
-app.use(cors());
+// app.use(cors());
 
 // Parse incoming json reqs
 app.use(express.json());
 
 
-app.post('/fun/info', async (req: Request, res: Response) => {
+app.post("/fun/info", async (req: Request, res: Response) => {
+    console.log("Received a POST request to /fun/info");
+
     const { name, hobbies, favoriteFood } = req.body;
 
     const funInfo = {

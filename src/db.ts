@@ -16,7 +16,7 @@ type FunInfo = {
 };
 
 async function insertFunInfo(info: FunInfo) {
-  const query = `INSERT INFO fun_info (name, hobbies, favorite_food) VALUES ($1, $2, $3)`;
+  const query = `INSERT INTO fun_info (name, hobbies, favorite_food) VALUES ($1, $2, $3)`;
   const values = [info.name, info.hobbies, info.favoriteFood];
 
   try{
