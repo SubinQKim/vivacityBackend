@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../app'; // Import your Express app instance
+import { app } from '../app'; // Import your Express app instance
 
 describe('POST /fun/info', () => {
   it('should insert fun info into the database', async () => {

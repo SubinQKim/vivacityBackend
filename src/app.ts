@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import { pool, insertFunInfo } from './db';
 import cors from "cors";
 
-const app = express();
+export const app = express();
 const port = 3000;
 
 //enable cors to allow reqs from diff origins
@@ -35,6 +35,8 @@ app.post("/fun/info", async (req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+
 
 
 //API endpoint (old, before stretch activity)
