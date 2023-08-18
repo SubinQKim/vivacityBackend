@@ -2,17 +2,18 @@ import { before } from 'node:test';
 import request from 'supertest';
 import { app } from '../app'; // Import your Express app instance
 
-// let server: any;
+let server: any;
 
-// const testPort = 7002;
+const testPort = 7002;
 
-// beforeAll((done) => {
-//   server = app.listen(testPort, done);
-// })
+beforeAll((done) => {
+  server = app.listen(testPort, done);
+}, 10000)
 
-// afterAll((done) => {
-//   server.close(done);
-// })
+afterAll((done) => {
+  server.close(done);
+});
+
 
 describe('POST /fun/info', () => {
   it('should insert fun info into the database', async () => {

@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { pool, insertFunInfo } from './db';
+import { pool, insertFunInfo } from "./db";
 import cors from "cors";
 
 export const app = express();
@@ -11,33 +11,31 @@ app.use(cors());
 // Parse incoming json reqs
 app.use(express.json());
 
-
 app.post("/fun/info", async (req: Request, res: Response) => {
-    console.log("Received a POST request to /fun/info");
+  console.log("Received a POST request to /fun/info");
 
-    const { name, hobbies, favoriteFood } = req.body;
+  const { name, hobbies, favoriteFood } = req.body;
 
-    const funInfo = {
-        name,
-        hobbies,
-        favoriteFood,
-    };
+  const funInfo = {
+    name,
+    hobbies,
+    favoriteFood,
+  };
 
-    try {
-        await insertFunInfo(funInfo);
-        res.json({ message: 'Fun information inserted successfully' });
-      } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
-      }
+  try {
+    await insertFunInfo(funInfo);
+    res.json({ message: "Fun information inserted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 //Start the server
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
-
-
-
+if (require.main == module){
+  app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+  });
+}
 
 //API endpoint (old, before stretch activity)
 // app.get("/awesome/applicant", (req: Request, res: Response) =>  {
@@ -48,8 +46,6 @@ app.listen(port, () => {
 //     };
 //     res.json(funInfo);
 // });
-
-
 
 // below is the create table query used in PG Admin 4
 // CREATE TABLE fun_info (
