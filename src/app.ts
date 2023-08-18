@@ -3,7 +3,7 @@ import { pool, insertFunInfo } from './db';
 import cors from "cors";
 
 export const app = express();
-const port = 3000;
+const port = 7001;
 
 //enable cors to allow reqs from diff origins
 app.use(cors());
