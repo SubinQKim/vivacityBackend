@@ -8,10 +8,12 @@ const testPort = 7002;
 
 beforeAll((done) => {
   server = app.listen(testPort, done);
-}, 10000)
+}, 10000);
 
-afterAll((done) => {
-  server.close(done);
+afterAll(async () => {
+  await new Promise<void>((resolve) => {
+    server.close(resolve);
+  });
 });
 
 
