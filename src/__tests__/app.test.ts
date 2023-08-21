@@ -7,6 +7,7 @@ let server: any;
 const testPort = 7002;
 
 beforeAll((done) => {
+  jest.resetModules(); // Reset modules before each test
   server = app.listen(testPort, done);
 }, 10000);
 
